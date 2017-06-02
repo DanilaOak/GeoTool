@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+	<title>{{ title }} - GeoTool</title>
+    {% else %}
+    <title>GeoTool</title>
+    {% endif %}
+	<meta charset="utf-8">
+	<link type="text/css" href="../static/style.css" rel="stylesheet">
+</head>
+<body>
+<div align="center">
+	<!--header-->
+	<header>
+		<img class="logo_l" src="../static/img_/triangl.gif">
+		<img class="logo_r" src="../static/img_/triangl.gif">
+		<h1>Универсальный геодезический калькулятор</h1>
+		<h3>GeoTool - надежный помощник в решении любых задач. </h3>
+            <hr>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }} </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+	</header>
+	<!--body-->
+	<div class="body">
+	<!--sidebarmenu-->
+		<aside>
+			<h2> Все задачи: </h2>
+			<ul>
+                <li> <div><a href="/index">Главная</a></div> </li>
+                <li> <div><a href="/dir_pr">Прямая геодезическая задача</a></div> </li>
+				<li> <div><a href="/fromgrad">Пересчет из градов (гонов) в градусы</a></div> </li>
+				<li> <div><a href="/login">Логин</a></div>  </li>
+				<li> меню </li>
+				<li> в виде </li>
+				<li> списка </li>
+			 </ul>
+		</aside>
+		<!--cotent-->
+		{% block content %}{% endblock %}
+	</div>
+	<!--footer-->
+	<footer> <p class="wt"> Нарисуем копирайт и обратную связь. </p> </footer>
+</div>
+</body>
+</html>

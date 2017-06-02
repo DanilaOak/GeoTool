@@ -1,0 +1,23 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <article class="cont">
+    <form action = "" method="POST">
+        <p><b>Расчет прямой геодезической задачи</b> </p>
+        <p><input type="text" name="Alpha_g" required pattern="^[ 0-9]+$" placeholder="0" min="0" max="360"> Введите градусы угла альфа</p>
+        <p><input type="text" name="Alpha_m" required pattern="^[ 0-9]+$" placeholder="0"> Введите минуты угла альфа</p>
+        <p><input type="text" name="Alpha_s" required pattern="^[ 0-9]+$" placeholder="0"> Введите секунды угла альфа</p>
+        <p><input type="text" name="X_a"  required pattern="\d+(\.\d{1,)?" placeholder="0.00"> Введите координаты точки X, м</p>
+        <p><input type="text" name="Y_a" required pattern="\d+(\.\d{1,)?" placeholder="0.00"> Введите координаты точки Y, м</p>
+        <p><input type="text" name="D" required pattern="\d+(\.\d{1,)?" placeholder="0.00"> Горизонтальное проложение линии d, м</p>
+        <p><input type="submit"></p>
+    </form>
+    <p><b>Приращения координат:</b></p>
+    <p>delta X: {{ d_x }}</p>
+    <p>delta Y: {{ d_y }}</p>
+    <p><b>Координаты второй точки:</b></p>
+    <p>X: {{ x }}</p>
+    <p>Y: {{ y }}</p>
+    </article>
+{% endblock %}
